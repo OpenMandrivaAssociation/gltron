@@ -46,7 +46,6 @@ install -m0644 gltron-48.png $RPM_BUILD_ROOT%{_liconsdir}/gltron.png
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=Gltron
 Comment=3d lightcycle game
 Exec=%{_gamesbindir}/gltron
