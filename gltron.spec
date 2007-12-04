@@ -14,7 +14,7 @@ Source1:	gltron-xpm.tar.bz2
 Patch:	gltron-0.70-gcc4.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  SDL_sound-devel
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:  libMesaGLU-devel
 BuildRequires:  png-devel
 BuildRequires:  mesagl-devel
