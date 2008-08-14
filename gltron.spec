@@ -1,6 +1,6 @@
 %define name	gltron
 %define version	0.70
-%define release	%mkrel 9
+%define release	%mkrel 10
 
 Summary:	Gltron, a 3d lightcycle game using OpenGL
 Name:		%{name}
