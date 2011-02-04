@@ -1,6 +1,6 @@
 %define name	gltron
 %define version	0.70
-%define release	%mkrel 12
+%define release	%mkrel 13
 
 Summary:	Gltron, a 3d lightcycle game using OpenGL
 Name:		%{name}
@@ -11,25 +11,32 @@ Group:		Games/Arcade
 Url:		http://gltron.sourceforge.net
 Source:		gltron-%version.tar.bz2
 Source1:	gltron-xpm.tar.bz2
-Patch:	gltron-0.70-gcc4.patch
+Patch0:		gltron-0.70-gcc4.patch
+Patch1:		gltron-0.70-sys-cflags.patch
+Patch2:		gltron-0.70-link.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	SDL-devel
 BuildRequires:  SDL_sound-devel
-BuildRequires:	X11-devel
-BuildRequires:  mesaglu-devel
 BuildRequires:  png-devel
 BuildRequires:  mesagl-devel
+BuildRequires:	smpeg-devel
 
 %description
 A very nice Tron game using OpenGL.
 
 %prep
 %setup -q
-%patch -p1 -b .gcc4
+%patch0 -p1 -b .gcc4
+%patch1 -p0 -b .cflags
+%patch2 -p0 -b .link
 
 %build
-export LDFLAGS=-L/usr/X11R6/lib
-%configure2_5x --bindir=%_gamesbindir --datadir=%_gamesdatadir --disable-warn
-%make CXX="g++ -L/usr/X11R6/lib"
+touch AUTHORS NEWS
+autoreconf -fi
+%configure2_5x --bindir=%_gamesbindir \
+	--datadir=%_gamesdatadir --disable-warn \
+	--disable-sdltest
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
