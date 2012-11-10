@@ -1,0 +1,11 @@
+--- configure.in.orig	2011-02-04 17:29:28.000000000 +0100
++++ configure.in	2011-02-04 17:29:52.000000000 +0100
+@@ -17,7 +17,7 @@
+ AC_PROG_RANLIB
+ 
+ dnl CFLAGS set-up
+-CFLAGS="-DSEPARATOR=\"'/'\"" 
++CFLAGS=" $CFLAGS -DSEPARATOR=\"'/'\"" 
+ dnl CFLAGS="-ansi -pedantic"
+ dnl CXXFLAGS=""
+ dnl CPPFLAGS=""

@@ -1,0 +1,51 @@
+--- Makefile.am.link	2011-02-04 17:42:47.000000000 +0100
++++ Makefile.am	2011-02-04 17:42:57.000000000 +0100
+@@ -4,7 +4,6 @@
+ 
+ gltron_SOURCES = @top_srcdir@/src/gltron.c
+ 
+-gltron_LINK = $(CXX) -o $@
+ gltron_LDADD = \
+ 	src/game/libgame.a \
+ 	src/input/libinput.a \
+--- lua/src/lib/Makefile.am.link	2011-02-04 17:47:00.000000000 +0100
++++ lua/src/lib/Makefile.am	2011-02-04 17:48:03.000000000 +0100
+@@ -1,10 +1,7 @@
+ noinst_LIBRARIES=liblualib.a
+ 
+-DEFS=
+-CPPFLAGS=
+-CFLAGS=-ansi -pedantic -Wall -I$(srcdir)/.. -I$(top_srcdir)/lua/include
+-LDFLAGS=
+-LIBS=-lm
++AM_CFLAGS=-ansi -pedantic -Wall -I$(srcdir)/.. -I$(top_srcdir)/lua/include
++AM_LIBS=-lm
+ 
+ liblualib_a_SOURCES=lauxlib.c lbaselib.c ldblib.c liolib.c lmathlib.c lstrlib.c
+ 
+--- lua/src/Makefile.am.link	2011-02-04 17:49:52.000000000 +0100
++++ lua/src/Makefile.am	2011-02-04 17:50:12.000000000 +0100
+@@ -2,11 +2,8 @@
+ 
+ noinst_LIBRARIES=liblua.a
+ 
+-DEFS=
+-AM_CPPFLAGS=
+ AM_CFLAGS=-ansi -pedantic -Wall -I$(srcdir) -I$(top_srcdir)/lua/include
+-LDFLAGS=
+-LIBS=-lm
++AM_LIBS=-lm
+ 
+ liblua_a_SOURCES=lapi.c lcode.c ldebug.c ldo.c lfunc.c lgc.c llex.c lmem.c \
+ 	lobject.c lparser.c lstate.c lstring.c ltable.c ltests.c ltm.c lundump.c \
+--- nebu/scripting/Makefile.am.link	2011-02-04 17:51:34.000000000 +0100
++++ nebu/scripting/Makefile.am	2011-02-04 17:51:46.000000000 +0100
+@@ -6,8 +6,6 @@
+ libscripting_a_LIBADD= \
+ 	$(top_builddir)/lua/src/liblua.a \
+ 	$(top_builddir)/lua/src/lib/liblualib.a
+-	# @top_srcdir@/lua/src/liblua.a \
+-	# @top_srcdir@/lua/src/lib/liblualib.a
+ 
+ AM_CFLAGS = \
+ 	-I$(top_srcdir)/nebu/include/base \
