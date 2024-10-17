@@ -8,7 +8,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Games/Arcade
-Url:		http://gltron.sourceforge.net
+Url:		https://gltron.sourceforge.net
 Source:		gltron-%version.tar.bz2
 Source1:	gltron-xpm.tar.bz2
 Patch0:		gltron-0.70-gcc4.patch
