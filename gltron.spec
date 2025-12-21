@@ -15,6 +15,11 @@ Patch0:		gltron-0.70-gcc4.patch
 Patch1:		gltron-0.70-sys-cflags.patch
 Patch2:		gltron-0.70-link.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	SDL-devel
 BuildRequires:  SDL_sound-devel
 BuildRequires:  png-devel
